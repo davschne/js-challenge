@@ -1,7 +1,9 @@
-var React = require("react");
-var model = require("./components/contacts-model");
+var React    = require("react");
+var ReactDOM = require("react-dom");
+var Modal    = require("react-modal");
+var model    = require("./components/contacts-model")();
 
-var Search = React.createClass({});
+// var Search = React.createClass({});
 var NewContactForm = React.createClass({
   getInitialState: function() {
     return {
@@ -69,15 +71,15 @@ var App = React.createClass({
     model.add(contact);
     this.setState({ contacts: model.getAll() });
     this.closeModal();
-  }.bind(this),
+  },
   cancelAdd: function() {
     this.closeModal();
-  }.bind(this),
+  },
   render: function() {
 
-    var rows = this.contacts.map(function(contact) {
+    var rows = this.state.contacts.map(function(contact) {
       return (
-        <tr>
+        <tr key={contact.id}>
           <td>{contact.firstName}</td>
           <td>{contact.lastName}</td>
           <td>{contact.dob}</td>
@@ -89,15 +91,12 @@ var App = React.createClass({
     });
 
     return (
-      <main class="main">
-        <Search/>
-        <button class="button button--add-contact" onClick={this.openModal}>
+      <main className="main">
+        { /* <Search/> */ }
+        <button className="button button--add-contact" onClick={this.openModal}>
           Contacts Keeper
         </button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-        />
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
           <NewContactForm add={this.addContact} cancel={this.cancelAdd}/>
         </Modal>
         <table>
@@ -118,4 +117,4 @@ var App = React.createClass({
   }
 });
 
-React.render(<App/>, document.getElementById('content'));
+ReactDOM.render(<App/>, document.getElementById('content'));

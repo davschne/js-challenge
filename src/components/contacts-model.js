@@ -12,7 +12,7 @@ var contactsModel = function(_contacts) {
 
   return {
     add: add,
-    get: getAll
+    getAll: getAll
   }
 }
 
