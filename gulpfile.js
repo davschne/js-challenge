@@ -28,7 +28,7 @@ gulp.task("transpilejs", function() {
 });
 
 gulp.task("copy", function() {
-  return gulp.src(["./src/*.html", "./src/*.css"])
+  return gulp.src(["./src/*.html", "./src/*.css", "./src/**/*.png"])
     .pipe(gulp.dest("./build/"));
 });
 

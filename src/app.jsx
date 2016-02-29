@@ -35,40 +35,49 @@ var App = React.createClass({
     var rows = this.state.contacts.map(function(contact) {
       return (
         <tr key={contact.id}>
-          <td>{contact.firstName}</td>
-          <td>{contact.lastName}</td>
-          <td>{contact.dob}</td>
-          <td>{contact.phone}</td>
-          <td>{contact.email}</td>
-          <td>{contact.notes}</td>
+          <td className="table__cell">{contact.firstName}</td>
+          <td className="table__cell">{contact.lastName}</td>
+          <td className="table__cell">{contact.dob}</td>
+          <td className="table__cell">{contact.phone}</td>
+          <td className="table__cell">{contact.email}</td>
+          <td className="table__cell">{contact.notes}</td>
         </tr>
       );
     });
 
     return (
       <main className="contacts">
-        { /* <Search/> */ }
-        <button
-          className="contacts__button contacts__button--add"
-          onClick={this.openModal}>
-          Contacts Keeper</button>
+        <div className="contacts__button-container">
+          <label className="contacts__search">
+            <input type="text" name="search" placeholder="Search"/>
+            <button className="contacts__button contacts__button--search">
+              <img src="images/search-icon.png"></img>
+            </button>
+          </label>
+          <button
+            className="contacts__button contacts__button--add"
+            onClick={this.openModal}>
+            <img src="images/plus-icon.png"></img>
+            <span>Contacts Keeper</span>
+          </button>
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}>
           <NewContactForm add={this.addContact} cancel={this.cancelAdd}/>
         </Modal>
-        <table>
-          <thead>
+        <table className="table">
+          <thead className="table__header">
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Date of Birth</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Notes</th>
+              <th className="table__cell">First Name</th>
+              <th className="table__cell">Last Name</th>
+              <th className="table__cell">Date of Birth</th>
+              <th className="table__cell">Phone</th>
+              <th className="table__cell">Email</th>
+              <th className="table__cell">Notes</th>
             </tr>
           </thead>
-          <tbody>{rows}</tbody>
+          <tbody className="table__body">{rows}</tbody>
         </table>
       </main>
     );

@@ -1,0 +1,143 @@
+/*-- MEYER RESET
+–––––––––––––––––––––––––––––––––––––––––––––––––– --*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* COLORS */
+
+/*
+dark blue: #216FB5
+light blue: rgb(27, 89, 166)
+orange: #F58025
+dark gray: #676767
+light gray: rgb(240, 240, 240)
+header bottom border: rgb(225, 225, 225)
+*/
+
+/* HEADER */
+
+.header {
+  font-size: 2rem;
+  background-color: #F58025;
+  color: #FFF;
+  border-bottom: 0.75em solid rgb(225, 225, 225);
+  padding: 0.75em;
+}
+
+/* CONTACTS */
+
+.contacts {
+  font-size: 1rem;
+  padding: 3em 2em 0 1em;
+}
+
+.contacts__button {
+  font-size: 1rem;
+  border-radius: 0.2em;
+  background-color: #216FB5;
+  border: 0.2em solid #216FB5;
+  color: #FFF;
+}
+
+.contacts__search {
+  float: left;
+}
+
+.contacts__button--search {
+
+}
+
+.contacts__search input {
+  font-size: 1rem;
+  padding: 0.5em;
+}
+
+.contacts__button--add {
+  padding: 0.4em;
+  float: right;
+}
+
+.contacts__button--add img {
+  font-size: 1rem;
+  margin: auto 0.5em auto 0;
+}
+
+/* TABLE */
+
+.table {
+  font-size: 1rem;
+  border: 0.2em solid #676767;
+  border-radius: 0.5em;
+  margin-top: 2em;
+}
+
+.table__cell {
+  font-size: 1rem;
+  padding: 0.7em;
+}
+
+.table__header .table__cell {
+  color: #FFF;
+  background-color: #676767;
+  border-right: 1px solid #FFF;
+}
+
+.table__body .table__cell {
+  color: rgb(84, 84, 84);
+  background-color: #FFF;
+  border-right: 1px solid rgb(240, 240, 240);
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
