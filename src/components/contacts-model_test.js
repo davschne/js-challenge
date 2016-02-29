@@ -13,6 +13,10 @@ describe("contacts-model", function() {
     model = Model();
   });
 
+  afterEach(function() {
+    model.clear();
+  });
+
   describe("#Constructor", function() {
     it("should return a JS object with methods: add, getAll", function() {
       expect(model).toBeDefined();
@@ -52,6 +56,15 @@ describe("contacts-model", function() {
       expect(result.length).toEqual(2);
       expect(result[0].key).toEqual(testdata[0].key);
       expect(result[1].key).toEqual(testdata[1].key);
+    });
+  });
+
+  describe("#clear", function() {
+    it("should reset contacts to an empty array, also clearing localstorage", function() {
+      model.add(testdata[0]);
+      expect(model.getAll().length).toEqual(1);
+      model.clear();
+      expect(model.getAll().length).toEqual(0);
     });
   });
 });

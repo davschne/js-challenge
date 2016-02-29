@@ -4,8 +4,8 @@
   "description": "### Purpose The purpose of this exercise is for you to demonstrate your ability to create a performant React application that both matches a mock (shown above) in features and functionality. We use this challenge to better understand your coding abilities and determine if you would be a good fit for an in-person interview.",
   "main": "build/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t [ babelify --presets [ react ] ] src/app.jsx -o build/bundle.js"
+    "test": "gulp test",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",

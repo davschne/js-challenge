@@ -56,8 +56,13 @@ $ npm install
 ```
 Next, build the static files:
 ```
-$ gulp build
+$ npm run build
 ```
 NB :  Gulp may need to be installed globally: `$ npm install -g gulp`
 
 Now you can run the app by opening `build/index.html` in the browser of your choice.
+
+To run the tests (in Chrome):
+```
+$ npm run test
+```

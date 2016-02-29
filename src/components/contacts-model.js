@@ -32,11 +32,18 @@ var contactsModel = function() {
     return contacts;
   };
 
+  var clear = function() {
+    contacts = [];
+    counter  = 0;
+    localStorage.setItem("contacts", "null");
+  };
+
   init();
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    clear: clear
   }
 }
 
