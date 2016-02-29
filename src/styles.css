@@ -94,7 +94,7 @@ body {
 .button-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -103,6 +103,7 @@ body {
 .search-contacts {
   font-size: 1rem;
   height: 2em;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -135,6 +136,7 @@ body {
   border: 1px solid #216FB5;
   border-radius: 0.2em;
   height: 2em;
+  margin-bottom: 1em;
 }
 
 .add-contact-button__plus-icon {
