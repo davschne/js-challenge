@@ -46,14 +46,18 @@ The challenge requirements seem vague, am I missing something?
 - This prompt is designed to be open-ended, so feel free to be creative in the areas that lack strict guidelines.
 
 # Running My App (README.md)
-To install:
+First clone the repo:
+```
+$ git clone https://github.com/davschne/js-challenge.git
+```
+`cd` to the project root, then install:
 ```
 $ npm install
 ```
-Then build:
+Next, build the static files:
 ```
 $ gulp build
 ```
 NB :  Gulp may need to be installed globally: `$ npm install -g gulp`
 
-Now you can run the app by opening build/index.html in the browser of your choice.
+Now you can run the app by opening `build/index.html` in the browser of your choice.
