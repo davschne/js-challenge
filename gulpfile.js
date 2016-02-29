@@ -17,7 +17,10 @@ gulp.task("transpilejs", function() {
   var bundler = browserify("src/app.jsx");
   bundler.transform(babelify);
   return bundler.bundle()
-    .on("error", function (err) { console.error(err.toString()); })
+    .on("error", function (err) {
+      console.error(err.toString());
+      this.emit("end");
+    })
     .pipe(source("bundle.js"))
     .pipe(buffer())
     // .pipe(uglify())

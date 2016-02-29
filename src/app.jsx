@@ -46,12 +46,15 @@ var App = React.createClass({
     });
 
     return (
-      <main className="main">
+      <main className="contacts">
         { /* <Search/> */ }
-        <button className="button button--add-contact" onClick={this.openModal}>
-          Contacts Keeper
-        </button>
-        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}>
+        <button
+          className="contacts__button contacts__button--add"
+          onClick={this.openModal}>
+          Contacts Keeper</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}>
           <NewContactForm add={this.addContact} cancel={this.cancelAdd}/>
         </Modal>
         <table>
