@@ -1,13 +1,12 @@
 var gulp        = require("gulp");
 var del         = require("del");
-// var webpack     = require("gulp-webpack");
 var KarmaServer = require("karma").Server;
 
 var babelify = require("babelify");
 var browserify = require("browserify");
 var buffer = require("vinyl-buffer");
 var source = require("vinyl-source-stream");
-// var uglify = require("gulp-uglify");
+var uglify = require("gulp-uglify");
 
 gulp.task("clean", function() {
   del.sync(["./build/**", "!build"]);
@@ -23,7 +22,7 @@ gulp.task("transpilejs", function() {
     })
     .pipe(source("bundle.js"))
     .pipe(buffer())
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest("build"));
 });
 
