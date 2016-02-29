@@ -2,8 +2,10 @@
 var contactsModel = function () {
 
   var contacts = [];
+  var counter = 0; // used for assigning a unique ID to each contact
 
   var add = function (contact) {
+    contact.id = counter++;
     contacts.push(contact);
   };
 
@@ -22,7 +24,7 @@ module.exports = contactsModel;
 },{}],2:[function(require,module,exports){
 var Model = require("./contacts-model.js");
 
-var testdata = [{ key0: "value0" }, { key1: "value1" }];
+var testdata = [{ key: "value0" }, { key: "value1" }];
 
 describe("contacts-model", function () {
 
@@ -41,11 +43,22 @@ describe("contacts-model", function () {
   });
 
   describe("#add", function () {
-    it("should add an object to the end of the array", function () {
+    it("should add an object provided as argument to the end of the array", function () {
       model.add(testdata[0]);
-      expect(model.getAll()).toEqual([testdata[0]]);
+      expect(model.getAll().length).toEqual(1);
+      expect(model.getAll()[0].key).toEqual(testdata[0].key);
       model.add(testdata[1]);
-      expect(model.getAll()).toEqual([testdata[0], testdata[1]]);
+      expect(model.getAll().length).toEqual(2);
+      expect(model.getAll()[1].key).toEqual(testdata[1].key);
+    });
+    it("should add a property 'id' on the object which is unique in the array", function () {
+      model.add(testdata[0]);
+      model.add(testdata[1]);
+      var result = model.getAll();
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toBeDefined();
+      expect(result[1].id).toBeDefined();
+      expect(result[0]).not.toEqual(result[1]);
     });
   });
 
@@ -56,7 +69,10 @@ describe("contacts-model", function () {
     it("should return an array of items that have been added", function () {
       model.add(testdata[0]);
       model.add(testdata[1]);
-      expect(model.getAll()).toEqual([testdata[0], testdata[1]]);
+      var result = model.getAll();
+      expect(result.length).toEqual(2);
+      expect(result[0].key).toEqual(testdata[0].key);
+      expect(result[1].key).toEqual(testdata[1].key);
     });
   });
 });
