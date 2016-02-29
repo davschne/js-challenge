@@ -46,4 +46,14 @@ The challenge requirements seem vague, am I missing something?
 - This prompt is designed to be open-ended, so feel free to be creative in the areas that lack strict guidelines.
 
 # Running My App (README.md)
---- Insert your readme here ---
+To install:
+```
+$ npm install
+```
+Then build:
+```
+$ gulp build
+```
+NB :  Gulp may need to be installed globally: `$ npm install -g gulp`
+
+Now you can run the app by opening build/index.html in the browser of your choice.
