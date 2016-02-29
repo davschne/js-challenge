@@ -16,7 +16,7 @@ gulp.task("clean", function() {
 gulp.task("transpilejs", function() {
   var bundler = browserify("src/app.jsx");
   bundler.transform(babelify);
-  bundler.bundle()
+  return bundler.bundle()
     .on("error", function (err) { console.error(err.toString()); })
     .pipe(source("bundle.js"))
     .pipe(buffer())
@@ -27,6 +27,23 @@ gulp.task("transpilejs", function() {
 gulp.task("copy", function() {
   return gulp.src(["./src/*.html", "./src/*.css"])
     .pipe(gulp.dest("./build/"));
+});
+
+gulp.task("test-transpilejs", function() {
+  var bundler = browserify("./test/test-entry.js");
+  bundler.transform(babelify);
+  return bundler.bundle()
+    .on("error", function (err) { console.error(err.toString()); })
+    .pipe(source("test-bundle.js"))
+    .pipe(buffer())
+    .pipe(gulp.dest("test"));
+});
+
+gulp.task("test", ["test-transpilejs"], function(done) {
+  new KarmaServer({
+    configFile: __dirname + "/karma.conf.js"
+  }, done)
+  .start();
 });
 
 gulp.task("build", [ "clean", "transpilejs", "copy" ]);

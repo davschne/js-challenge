@@ -1,6 +1,6 @@
-var contactsModel = function(_contacts) {
+var contactsModel = function() {
 
-  var contacts = _contacts ? _contacts : [];
+  var contacts = [];
 
   var add = function(contact) {
     contacts.push(contact);
