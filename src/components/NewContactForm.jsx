@@ -56,9 +56,9 @@ module.exports = React.createClass({
   render: function() {
 
     var fieldElements = fields.map(function(field) {
-      var labelClass = "form-field form-field--" + field.name;
-      var spanClass = "form-field__label";
-      var inputClass = "form-field__input form-field__input--" + field.name;
+      var labelClass = "new-contact-form__field new-contact-form__field--" + field.name;
+      var spanClass = "new-contact-form__label new-contact-form__label--" + field.name;
+      var inputClass = "new-contact-form__input new-contact-form__input--" + field.name;
       return (
         <label key={field.name} className={labelClass}>
           <span className={spanClass}>{field.label}</span>
@@ -75,15 +75,18 @@ module.exports = React.createClass({
 
     return (
       <div className="new-contact" name="newContact">
-        <h2 className="new-contact__title">Contacts Keeper</h2>
-        <button
-          className="new-contact__button new-contact__button--cancel"
-          onClick={this.props.cancel}>
-          x</button>
-        <form className="new-contact__form">{fieldElements}</form>
-        <button
-          className="new-contact__button new-contact__button--save"
-          onClick={this.submit}>Save</button>
+        <div className="new-contact__header">
+          <h2 className="new-contact__title">Contacts Keeper</h2>
+          <button className="new-contact__button--cancel"
+            onClick={this.props.cancel}>
+            <img src="images/x-icon.png"></img>
+          </button>
+        </div>
+        <form className="new-contact-form">{fieldElements}</form>
+        <div className="new-contact__footer">
+          <button className="new-contact__button--save" onClick={this.submit}>
+            Save</button>
+        </div>
       </div>
     );
   }

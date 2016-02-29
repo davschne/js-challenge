@@ -69,8 +69,13 @@ header bottom border: rgb(225, 225, 225)
 
 /* HEADER */
 
+body {
+  font-family: Arial;
+}
+
 .header {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  /*text-shadow: 0.2em;*/
   background-color: #F58025;
   color: #FFF;
   border-bottom: 0.75em solid rgb(225, 225, 225);
@@ -84,35 +89,153 @@ header bottom border: rgb(225, 225, 225)
   padding: 3em 2em 0 1em;
 }
 
-.contacts__button {
+/* BUTTON-CONTAINER */
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* SEARCH-CONTACTS */
+
+.search-contacts {
   font-size: 1rem;
+  height: 2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.search-contacts__input {
+  font-size: 1em;
+  border: 1px solid #676767;
+  border-radius: 0.2em;
+  height: 2em;
+  padding-left: 0.5em;
+}
+
+.search-contacts__button {
+  font-size: 1rem;
+  border: 1px solid #216FB5;
   border-radius: 0.2em;
   background-color: #216FB5;
-  border: 0.2em solid #216FB5;
+  height: 2em;
+}
+
+.search-contacts__icon {}
+
+/* ADD-CONTACT-BUTTON */
+
+.add-contact-button {
+  font-size: 1rem;
+  background-color: #216FB5;
+  border: 1px solid #216FB5;
+  border-radius: 0.2em;
+  height: 2em;
+}
+
+.add-contact-button__plus-icon {
+  margin: auto 0.5em auto 0;
+}
+
+.add-contact-button__text {
   color: #FFF;
 }
 
-.contacts__search {
-  float: left;
-}
+/* NEW-CONTACT */
 
-.contacts__button--search {
-
-}
-
-.contacts__search input {
+.new-contact {
   font-size: 1rem;
-  padding: 0.5em;
 }
 
-.contacts__button--add {
-  padding: 0.4em;
-  float: right;
+.new-contact__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #216FB5;
 }
 
-.contacts__button--add img {
+.new-contact__title {
+  font-size: 1.2em;
+  padding: 1em;
+  color: #FFF;
+}
+
+.new-contact__button--cancel {
+  color: #F58025;
+  background-color: #216FB5;
+  border: none;
+  padding-left: 1.2em;
+}
+
+.new-contact__footer {
+  border-top: 1px solid #676767;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.new-contact__button--save {
+  font-size: 1em;
+  background-color: #676767;
+  color: #FFF;
+  padding: 0.3em 1em 0.3em 1em;
+  margin: 1em 1.2em 1em 1.2em;
+  border: 1px solid #676767;
+  border-radius: 3px;
+}
+
+/* NEW-CONTACT-FORM */
+
+.new-contact-form {
   font-size: 1rem;
-  margin: auto 0.5em auto 0;
+  padding: 1.2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new-contact-form__field {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.new-contact-form__field--notes {
+  width: 100%;
+}
+
+.new-contact-form__label {
+  display: block;
+  font-size: 0.8em;
+  padding-bottom: 0.5em;
+}
+
+.new-contact-form__input {
+  display: block;
+  height: 2em;
+  border: 1px solid #676767;
+  border-radius: 3px;
+}
+
+.new-contact-form__input--firstName,
+.new-contact-form__input--lastName,
+.new-contact-form__input--dob,
+.new-contact-form__input--phone,
+.new-contact-form__input--email {
+  width: 180px;
+}
+
+.new-contact-form__input--notes {
+  vertical-align: text-top;
+  width: 100%;
+  height: 5em;
 }
 
 /* TABLE */
@@ -122,20 +245,33 @@ header bottom border: rgb(225, 225, 225)
   border: 0.2em solid #676767;
   border-radius: 0.5em;
   margin-top: 2em;
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
 }
 
-.table__cell {
-  font-size: 1rem;
+.table__cell--firstName {}
+.table__cell--lastName {}
+.table__cell--dob {
+  width: 10%;
+}
+.table__cell--phone {
+  width: 10%;
+}
+.table__cell--email {}
+.table__cell--notes {
+  width: 25%;
+}
+
+.table__cell--header {
   padding: 0.7em;
-}
-
-.table__header .table__cell {
   color: #FFF;
   background-color: #676767;
   border-right: 1px solid #FFF;
 }
 
-.table__body .table__cell {
+.table__cell--body {
+  padding: 0.7em;
   color: rgb(84, 84, 84);
   background-color: #FFF;
   border-right: 1px solid rgb(240, 240, 240);
